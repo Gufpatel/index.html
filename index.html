@@ -124,6 +124,7 @@
         }
 
                 /* --- CTA BUTTON (Solid Gold Bar Bevel) --- */
+                /* --- CTA BUTTON (Champagne Gold Chamfered Bevel) --- */
         .cta-button {
             display: flex;
             align-items: center;
@@ -131,40 +132,40 @@
             text-decoration: none;
             cursor: pointer;
             width: 100%;
-            max-width: 340px;
-            padding: 16px 30px;
-            border-radius: 12px;
+            max-width: 350px; /* Slightly wider to match target */
+            padding: 15px 30px; 
+            border-radius: 10px; /* Slightly sharper corners */
             margin-bottom: 40px; 
             
-            /* Smooth Gold Base */
-            background: linear-gradient(180deg, #FCE095 0%, #C89C42 40%, #9F7220 100%);
-            border: 1px solid #4A3206; /* Very thin dark outline */
+            /* Soft Champagne Gold Base */
+            background: linear-gradient(180deg, #F4DF9E 0%, #D4B05B 45%, #C2963B 100%);
+            border: 1px solid #483109; /* Sharp, dark brown outer edge */
             
-            /* Complex Bevel via Box-Shadows */
+            /* The exact metallic chamfer cut */
             box-shadow: 
-                0px 12px 25px rgba(0, 0, 0, 0.8),            /* Heavy outer drop shadow */
-                inset 0px 3px 2px rgba(255, 255, 255, 0.8),  /* Sharp, bright top highlight */
-                inset 0px -4px 6px rgba(0, 0, 0, 0.6),       /* Deep bottom shadow */
-                inset 0px 1px 10px rgba(255, 255, 255, 0.3); /* Soft inner surface glow */
+                0px 10px 20px rgba(0, 0, 0, 0.6),             /* Outer drop shadow */
+                inset 0px 3px 0px rgba(255, 255, 255, 0.9),   /* Solid white top rim */
+                inset 0px -3px 0px rgba(138, 93, 21, 0.7),    /* Solid dark gold bottom rim */
+                inset 2px 0px 0px rgba(255, 255, 255, 0.5),   /* Soft left rim */
+                inset -2px 0px 0px rgba(138, 93, 21, 0.5);    /* Soft right rim */
 
             /* Text Styling */
-            color: #1a1a1a;
+            color: #241804; /* Very dark rich brown, not pure black */
             font-family: var(--main-font);
-            font-size: 22px;
+            font-size: 21px;
             font-weight: 800;
             text-transform: capitalize;
-            text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.4); /* Slight engraved look */
+            text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.6); /* Crisp engraved highlight */
             transition: all 0.1s ease;
         }
 
         .cta-button:active {
-            transform: translateY(4px); /* Pushes down */
+            transform: translateY(4px); 
             box-shadow: 
-                0px 4px 10px rgba(0, 0, 0, 0.8), 
-                inset 0px 2px 2px rgba(255, 255, 255, 0.6),
-                inset 0px -2px 4px rgba(0, 0, 0, 0.5);
+                0px 4px 10px rgba(0, 0, 0, 0.6), 
+                inset 0px 2px 0px rgba(255, 255, 255, 0.7),
+                inset 0px -2px 0px rgba(138, 93, 21, 0.7);
         }
-
 
         /* Download Icon in Button */
         .download-icon {
@@ -176,30 +177,32 @@
             justify-content: center;
             align-items: center;
         }
-        /* Icon parts */
-        .download-icon::before { /* Downward arrow shaft */
+        /* Icon parts (Colored to match the dark brown text) */
+        .download-icon::before { 
             content: "";
             width: 3px;
             height: 14px;
-            background-color: #1a1a1a;
+            background-color: #241804; 
             position: absolute;
             bottom: 4px;
+            box-shadow: 1px 0px 0px rgba(255,255,255,0.4);
         }
-        .download-icon::after { /* Bottom line */
+        .download-icon::after { 
             content: "";
             width: 16px;
             height: 3px;
-            background-color: #1a1a1a;
+            background-color: #241804;
             position: absolute;
             bottom: 0px;
             border-radius: 2px;
+            box-shadow: 0px 1px 0px rgba(255,255,255,0.4);
         }
         .download-arrowhead {
             width: 0;
             height: 0;
             border-left: 6px solid transparent;
             border-right: 6px solid transparent;
-            border-top: 8px solid #1a1a1a;
+            border-top: 8px solid #241804;
             position: absolute;
             bottom: 2px;
         }
