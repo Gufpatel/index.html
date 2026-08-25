@@ -27,6 +27,18 @@
             border-radius: 12px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
+        .download-btn {
+            display: inline-block;
+            background-color: #007bff;
+            color: white;
+            padding: 16px 32px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 8px;
+            margin: 20px 0;
+            box-shadow: 0 4px 6px rgba(0,123,255,0.3);
+        }
         .fallback { 
             display: none; 
             margin-top: 20px; 
@@ -35,45 +47,45 @@
             color: #c62828;
             border-radius: 8px;
             font-weight: bold;
+            font-size: 14px;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h2>Vaidehi Cinema</h2>
-        <p>Your download should start automatically...</p>
+        <p>To safely download the app, click the button below:</p>
+        
+        <a id="downloadBtn" href="#" class="download-btn">Download App Now</a>
         
         <div id="fallbackMessage" class="fallback">
-            Download blocked by Instagram! <br><br>
+            If the button doesn't work:<br><br>
             Tap the <strong>3 dots (⋮)</strong> in the top right corner and select <strong>"Open in Chrome"</strong> or <strong>"Open in System Browser"</strong>.
         </div>
     </div>
 
     <script>
-        // 1. Define your URLs
         const apkPath = "github.com/Gufpatel/Vaidehi-Cinema/releases/download/VC/Vaidehi.Cinema.apk";
         const standardUrl = "https://" + apkPath;
-        // The Intent URI forces Android to open Google Chrome
         const intentUrl = "intent://" + apkPath + "#Intent;scheme=https;action=android.intent.action.VIEW;package=com.android.chrome;end;";
 
-        // 2. Detect the user's browser and OS
         const ua = navigator.userAgent || navigator.vendor || window.opera;
         const isInstagram = (ua.indexOf('Instagram') > -1);
         const isFacebook = (ua.indexOf('FBAN') > -1) || (ua.indexOf('FBAV') > -1);
         const isAndroid = (ua.indexOf('Android') > -1);
 
-        // 3. Route the user based on detection
+        const btn = document.getElementById('downloadBtn');
+
         if (isAndroid && (isInstagram || isFacebook)) {
-            // Attempt to force-open Chrome via Android Intent
-            window.location.href = intentUrl;
+            // Setup the button for Instagram/Facebook
+            btn.href = intentUrl;
             
-            // If the Intent is blocked (WebView security updates), show the manual instructions after 2 seconds
-            setTimeout(function() {
-                document.getElementById('fallbackMessage').style.display = 'block';
-            }, 2000);
+            // Show the 3-dots manual instruction immediately as a backup
+            document.getElementById('fallbackMessage').style.display = 'block';
         } else {
-            // Standard browser detected, proceed with normal download link
-            window.location.href = standardUrl;
+            // Setup for normal browsers
+            btn.href = standardUrl;
+            window.location.href = standardUrl; // It is safe to auto-redirect here
         }
     </script>
 </body>
