@@ -123,8 +123,9 @@
             padding: 0 10px;
         }
 
-        /* --- CTA BUTTON (3D Metallic) --- */
+                /* --- CTA BUTTON (True 3D Layer Bevel) --- */
         .cta-button {
+            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -133,31 +134,50 @@
             width: 100%;
             max-width: 320px;
             padding: 18px 30px;
-            border-radius: 12px;
-            font-family: var(--main-font);
-            font-size: 22px;
-            font-weight: 800; /* Made text bolder */
-            color: #1a1a1a;
-            text-transform: capitalize;
+            border-radius: 14px;
             margin-bottom: 40px; 
             
-            /* 3D Gold Effect */
-            background: linear-gradient(180deg, #F8E298 0%, #D0A74F 100%);
-            border: 2px solid #3B2A10; /* Dark outer rim */
+            /* 1. The Outer Raised Rim */
+            background: linear-gradient(180deg, #FDE6A9 0%, #B28834 100%);
+            border: 1px solid #1a1205; /* Sharp dark edge */
             box-shadow: 
-                inset 0px 4px 0px rgba(255, 255, 255, 0.5), /* Sharp top highlight */
-                inset 0px -4px 0px rgba(0, 0, 0, 0.25),     /* Deep bottom inner shadow */
-                0px 8px 15px rgba(0, 0, 0, 0.7);            /* Strong drop shadow */
+                0px 10px 25px rgba(0, 0, 0, 0.8), /* Heavy drop shadow */
+                inset 0px 2px 2px rgba(255,255,255,0.9); /* Sharp top rim highlight */
             transition: all 0.1s ease;
         }
 
-        .cta-button:active {
-            transform: translateY(4px); /* Pushes the button down when tapped */
+        /* 2. The Inner Recessed Area */
+        .cta-button::before {
+            content: "";
+            position: absolute;
+            top: 5px; left: 5px; right: 5px; bottom: 5px; /* Creates the 5px outer rim */
+            border-radius: 9px; 
+            background: linear-gradient(180deg, #C2983C 0%, #A57A22 100%); /* Slightly darker */
             box-shadow: 
-                inset 0px 2px 0px rgba(255, 255, 255, 0.4),
-                inset 0px -2px 0px rgba(0, 0, 0, 0.2),
-                0px 4px 8px rgba(0, 0, 0, 0.7); /* Smaller drop shadow when pressed */
+                inset 0px 4px 6px rgba(0, 0, 0, 0.5), /* Inner shadow for depth */
+                inset 0px -2px 3px rgba(255, 255, 255, 0.2); /* Bottom inner bounce light */
+            z-index: 1; /* Places it above the outer rim */
         }
+
+        /* 3. Text and Icon Layering */
+        .button-text, .download-icon {
+            position: relative;
+            z-index: 2; /* Forces text to sit on top of the recessed area */
+            color: #1a1a1a;
+            font-family: var(--main-font);
+            font-size: 22px;
+            font-weight: 800;
+            text-transform: capitalize;
+            text-shadow: 0px 1px 1px rgba(255,255,255,0.3); /* Engraved text effect */
+        }
+
+        .cta-button:active {
+            transform: translateY(4px); /* Pushes button down */
+            box-shadow: 
+                0px 4px 10px rgba(0, 0, 0, 0.8), 
+                inset 0px 2px 2px rgba(255,255,255,0.9);
+        }
+
 
         /* Download Icon in Button */
         .download-icon {
