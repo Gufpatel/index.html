@@ -1,1 +1,80 @@
-# index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Downloading Vaidehi Cinema...</title>
+
+    <!-- Open Graph Tags for WhatsApp & Facebook Previews -->
+    <meta property="og:title" content="Download Vaidehi Cinema">
+    <meta property="og:description" content="Click here to securely download the latest Vaidehi Cinema app directly to your Android device.">
+    <meta property="og:image" content="https://gufpatel.github.io/app-download/preview.jpg">
+    <meta property="og:url" content="https://gufpatel.github.io/app-download/">
+    <meta property="og:type" content="website">
+
+    <style>
+        body { 
+            font-family: sans-serif; 
+            text-align: center; 
+            padding: 40px 20px; 
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .fallback { 
+            display: none; 
+            margin-top: 20px; 
+            padding: 15px; 
+            background: #ffebee; 
+            color: #c62828;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Vaidehi Cinema</h2>
+        <p>Your download should start automatically...</p>
+        
+        <div id="fallbackMessage" class="fallback">
+            Download blocked by Instagram! <br><br>
+            Tap the <strong>3 dots (⋮)</strong> in the top right corner and select <strong>"Open in Chrome"</strong> or <strong>"Open in System Browser"</strong>.
+        </div>
+    </div>
+
+    <script>
+        // 1. Define your URLs
+        const apkPath = "github.com/Gufpatel/Vaidehi-Cinema/releases/download/VC/Vaidehi.Cinema.apk";
+        const standardUrl = "https://" + apkPath;
+        // The Intent URI forces Android to open Google Chrome
+        const intentUrl = "intent://" + apkPath + "#Intent;scheme=https;action=android.intent.action.VIEW;package=com.android.chrome;end;";
+
+        // 2. Detect the user's browser and OS
+        const ua = navigator.userAgent || navigator.vendor || window.opera;
+        const isInstagram = (ua.indexOf('Instagram') > -1);
+        const isFacebook = (ua.indexOf('FBAN') > -1) || (ua.indexOf('FBAV') > -1);
+        const isAndroid = (ua.indexOf('Android') > -1);
+
+        // 3. Route the user based on detection
+        if (isAndroid && (isInstagram || isFacebook)) {
+            // Attempt to force-open Chrome via Android Intent
+            window.location.href = intentUrl;
+            
+            // If the Intent is blocked (WebView security updates), show the manual instructions after 2 seconds
+            setTimeout(function() {
+                document.getElementById('fallbackMessage').style.display = 'block';
+            }, 2000);
+        } else {
+            // Standard browser detected, proceed with normal download link
+            window.location.href = standardUrl;
+        }
+    </script>
+</body>
+</html>
