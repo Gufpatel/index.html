@@ -104,21 +104,13 @@ body{
 }
 
 @keyframes bgRotate{
-    0%{
-        transform:rotate(0deg);
-    }
-    100%{
-        transform:rotate(360deg);
-    }
+    0%{ transform:rotate(0deg); }
+    100%{ transform:rotate(360deg); }
 }
 
 @keyframes bgLight{
-    0%{
-        background-position:100% 50%;
-    }
-    100%{
-        background-position:0% 50%;
-    }
+    0%{ background-position:100% 50%; }
+    100%{ background-position:0% 50%; }
 }
 
 .particles{
@@ -140,23 +132,11 @@ body{
 }
 
 @keyframes particleUp{
-    0%{
-        transform:translate3d(0,110vh,0) scale(.3);
-        opacity:0;
-    }
-    10%{
-        opacity:.9;
-    }
-    50%{
-        opacity:1;
-    }
-    90%{
-        opacity:.7;
-    }
-    100%{
-        transform:translate3d(70px,-15vh,0) scale(1.2);
-        opacity:0;
-    }
+    0%{ transform:translate3d(0,110vh,0) scale(.3); opacity:0; }
+    10%{ opacity:.9; }
+    50%{ opacity:1; }
+    90%{ opacity:.7; }
+    100%{ transform:translate3d(70px,-15vh,0) scale(1.2); opacity:0; }
 }
 
 .stage{
@@ -213,12 +193,8 @@ body{
 }
 
 @keyframes cardReflection{
-    0%{
-        background-position:120% 0;
-    }
-    100%{
-        background-position:-120% 100%;
-    }
+    0%{ background-position:120% 0; }
+    100%{ background-position:-120% 100%; }
 }
 
 .light{
@@ -266,12 +242,8 @@ body{
 }
 
 @keyframes reflectionMove{
-    0%{
-        transform:translateX(-100%) rotate(-15deg);
-    }
-    100%{
-        transform:translateX(100%) rotate(-15deg);
-    }
+    0%{ transform:translateX(-100%) rotate(-15deg); }
+    100%{ transform:translateX(100%) rotate(-15deg); }
 }
 
 .logo-wrapper{
@@ -313,14 +285,8 @@ body{
 }
 
 @keyframes logoAura{
-    0%{
-        transform:scale(.88);
-        opacity:.5;
-    }
-    100%{
-        transform:scale(1.08);
-        opacity:1;
-    }
+    0%{ transform:scale(.88); opacity:.5; }
+    100%{ transform:scale(1.08); opacity:1; }
 }
 
 .logo{
@@ -337,50 +303,45 @@ body{
 }
 
 @keyframes logoFloat{
-    0%,100%{
-        transform:translateY(0) translateZ(20px);
-    }
-    50%{
-        transform:translateY(-7px) translateZ(40px);
-    }
+    0%,100%{ transform:translateY(0) translateZ(20px); }
+    50%{ transform:translateY(-7px) translateZ(40px); }
 }
 
-.title{
-    position:relative;
-    z-index:3;
-    width:100%;
-    white-space:nowrap;
-    font-size:clamp(37px,9.5vw,58px);
-    line-height:1;
-    font-weight:900;
-    letter-spacing:-2px;
-    margin:0 auto;
-    background:
-        linear-gradient(
-            180deg,
-            #fff2bd 0%,
-            #e4bd67 28%,
-            #a6752b 63%,
-            #f5d37f 100%
-        );
-    -webkit-background-clip:text;
-    background-clip:text;
-    color:transparent;
+/* --- UPDATED SHINY GOLD POPPING TITLE --- */
+.title {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    white-space: nowrap;
+    font-size: clamp(37px, 9.5vw, 58px);
+    line-height: 1;
+    font-weight: 900;
+    letter-spacing: 0px;
+    margin: 0 auto;
+    color: #FFDF73; 
     text-shadow:
-        0 2px 0 #674814,
-        0 5px 9px rgba(0,0,0,.95);
-    filter:drop-shadow(0 0 9px rgba(230,185,78,.2));
-    animation:titleGlow 3s ease-in-out infinite alternate;
+        -1px -1px 0 rgba(255, 255, 255, 0.6), 
+        1px 1px 0 #B5841D, 
+        2px 2px 0 #A17519, 
+        3px 3px 0 #8E6716, 
+        4px 4px 0 #7A5812, 
+        5px 5px 0 #674A0F, 
+        6px 6px 0 #543D0C, 
+        8px 8px 15px rgba(0, 0, 0, 0.95); 
+    animation: titlePop 3s ease-in-out infinite alternate;
 }
 
-@keyframes titleGlow{
-    0%{
-        filter:drop-shadow(0 0 5px rgba(255,215,120,.08));
+@keyframes titlePop {
+    0% {
+        transform: translateY(0px);
+        filter: drop-shadow(0 0 5px rgba(255, 223, 115, 0.2));
     }
-    100%{
-        filter:drop-shadow(0 0 20px rgba(255,215,120,.28));
+    100% {
+        transform: translateY(-4px);
+        filter: drop-shadow(0 0 18px rgba(255, 223, 115, 0.5));
     }
 }
+/* -------------------------------------- */
 
 .subtitle{
     position:relative;
@@ -454,12 +415,8 @@ body{
 }
 
 @keyframes buttonShine{
-    0%{
-        left:-55%;
-    }
-    45%,100%{
-        left:145%;
-    }
+    0%{ left:-55%; }
+    45%,100%{ left:145%; }
 }
 
 .download-button:hover{
@@ -523,44 +480,28 @@ body{
 }
 
 @media(max-width:500px){
-
-    .stage{
-        padding:6px 5px 25px;
-    }
-
+    .stage{ padding:6px 5px 25px; }
     .card{
         min-height:calc(100vh - 12px);
         padding:20px 8px 28px;
         border-radius:22px;
     }
-
     .logo-wrapper{
         width:205px;
         height:205px;
         margin-bottom:6px;
     }
-
-    .logo{
-        width:182px;
-        height:182px;
-    }
-
-    .logo-wrapper:after{
-        width:188px;
-        height:188px;
-    }
-
+    .logo{ width:182px; height:182px; }
+    .logo-wrapper:after{ width:188px; height:188px; }
     .title{
         font-size:40px;
-        letter-spacing:-1.8px;
+        letter-spacing:0px; /* Fixed spacing */
     }
-
     .subtitle{
         width:95%;
         font-size:18px;
         margin:21px auto 28px;
     }
-
     .download-button{
         width:94%;
         height:78px;
@@ -568,65 +509,25 @@ body{
         gap:10px;
         border-radius:20px;
     }
-
-    .download-icon{
-        width:31px;
-        height:31px;
-    }
-
+    .download-icon{ width:31px; height:31px; }
     .notice{
         width:94%;
         margin-top:34px;
         padding:18px 13px;
         font-size:15px;
     }
-
-    .footer{
-        margin-top:24px;
-    }
+    .footer{ margin-top:24px; }
 }
 
 @media(max-width:380px){
-
-    .logo-wrapper{
-        width:175px;
-        height:175px;
-    }
-
-    .logo{
-        width:155px;
-        height:155px;
-    }
-
-    .logo-wrapper:after{
-        width:163px;
-        height:163px;
-    }
-
-    .title{
-        font-size:34px;
-        letter-spacing:-1.5px;
-    }
-
-    .subtitle{
-        font-size:16px;
-        margin-top:18px;
-    }
-
-    .download-button{
-        height:70px;
-        font-size:19px;
-    }
-
-    .download-icon{
-        width:28px;
-        height:28px;
-    }
-
-    .notice{
-        font-size:14px;
-        margin-top:30px;
-    }
+    .logo-wrapper{ width:175px; height:175px; }
+    .logo{ width:155px; height:155px; }
+    .logo-wrapper:after{ width:163px; height:163px; }
+    .title{ font-size:34px; letter-spacing:0px; }
+    .subtitle{ font-size:16px; margin-top:18px; }
+    .download-button{ height:70px; font-size:19px; }
+    .download-icon{ width:28px; height:28px; }
+    .notice{ font-size:14px; margin-top:30px; }
 }
 </style>
 </head>
@@ -649,9 +550,8 @@ body{
 
 <div class="logo-wrapper">
 
-<!-- Added ?v=2 to clear Instagram's image cache -->
 <img
-src="logo.png?v=2" 
+src="logo.png?v=2"
 alt="Vaidehi Cinema"
 class="logo"
 id="logo">
@@ -667,9 +567,8 @@ Click below to safely download
 the Vaidehi Cinema app.
 </p>
 
-<!-- The href will be automatically managed by the JavaScript below -->
 <a
-href="https://github.com/Gufpatel/Vaidehi-Cinema/releases/download/VC/Vaidehi.Cinema.apk"
+href="#"
 class="download-button"
 id="downloadButton"
 download>
@@ -705,197 +604,54 @@ select <strong>"Open in Chrome"</strong>.
 </div>
 
 <script>
-
-const particles=document.getElementById("particles");
-
-for(let i=0;i<45;i++){
-
-    const p=document.createElement("span");
-
-    p.className="particle";
-
-    const size=Math.random()*3+1;
-
-    p.style.width=size+"px";
-
-    p.style.height=size+"px";
-
-    p.style.left=Math.random()*100+"%";
-
-    p.style.animationDuration=
-        (Math.random()*8+7)+"s";
-
-    p.style.animationDelay=
-        (Math.random()*-15)+"s";
-
+// 1. Floating Background Particles
+const particles = document.getElementById("particles");
+for(let i=0; i<45; i++) {
+    const p = document.createElement("span");
+    p.className = "particle";
+    const size = Math.random() * 3 + 1;
+    p.style.width = size + "px";
+    p.style.height = size + "px";
+    p.style.left = Math.random() * 100 + "%";
+    p.style.animationDuration = (Math.random() * 8 + 7) + "s";
+    p.style.animationDelay = (Math.random() * -15) + "s";
     particles.appendChild(p);
 }
 
-const card=document.getElementById("card");
+// 2. Button Click Particle Burst
+const button = document.getElementById("downloadButton");
+button.addEventListener("click", function(e) {
+    for(let i=0; i<25; i++) {
+        const spark = document.createElement("span");
+        spark.style.position = "fixed";
+        spark.style.width = "5px";
+        spark.style.height = "5px";
+        spark.style.borderRadius = "50%";
+        spark.style.background = "#ffe7a0";
+        spark.style.boxShadow = "0 0 15px #e0ae45";
+        spark.style.left = e.clientX + "px";
+        spark.style.top = e.clientY + "px";
+        spark.style.zIndex = "99999";
+        document.body.appendChild(spark);
 
-const logo=document.getElementById("logo");
+        const angle = Math.random() * Math.PI * 2;
+        const distance = Math.random() * 100 + 40;
+        const x = Math.cos(angle) * distance;
+        const y = Math.sin(angle) * distance;
 
-let isTouchDevice=
-    "ontouchstart" in window ||
-    navigator.maxTouchPoints>0;
+        spark.animate([
+            { transform: "translate(0,0) scale(1)", opacity: 1 },
+            { transform: "translate(" + x + "px," + y + "px) scale(0)", opacity: 0 }
+        ], {
+            duration: 750,
+            easing: "cubic-bezier(.2,.8,.2,1)"
+        });
 
-if(!isTouchDevice){
-
-    document.addEventListener(
-        "mousemove",
-        function(e){
-
-            const x=
-                (window.innerWidth/2-e.clientX)/45;
-
-            const y=
-                (window.innerHeight/2-e.clientY)/45;
-
-            card.style.transform=
-                "perspective(1400px) "+
-                "rotateY("+x+"deg) "+
-                "rotateX("+(-y)+"deg)";
-
-            logo.style.transform=
-                "translateZ(45px) "+
-                "rotateY("+(-x*1.5)+"deg) "+
-                "rotateX("+(y*1.5)+"deg)";
-        }
-    );
-
-    document.addEventListener(
-        "mouseleave",
-        function(){
-
-            card.style.transform=
-                "perspective(1400px) rotateY(0deg) rotateX(0deg)";
-
-            logo.style.transform=
-                "translateZ(20px) rotateY(0deg) rotateX(0deg)";
-        }
-    );
-}
-
-window.addEventListener(
-    "deviceorientation",
-    function(e){
-
-        if(
-            typeof e.gamma!=="number" ||
-            typeof e.beta!=="number"
-        ){
-            return;
-        }
-
-        const y=
-            Math.max(
-                -8,
-                Math.min(
-                    8,
-                    e.gamma/5
-                )
-            );
-
-        const x=
-            Math.max(
-                -6,
-                Math.min(
-                    6,
-                    (e.beta-45)/7
-                )
-            );
-
-        card.style.transform=
-            "perspective(1400px) "+
-            "rotateY("+y+"deg) "+
-            "rotateX("+(-x)+"deg)";
+        setTimeout(function(){ spark.remove(); }, 800);
     }
-);
+});
 
-const button=
-    document.getElementById("downloadButton");
-
-button.addEventListener(
-    "click",
-    function(e){
-
-        for(let i=0;i<25;i++){
-
-            const spark=
-                document.createElement("span");
-
-            spark.style.position="fixed";
-
-            spark.style.width="5px";
-
-            spark.style.height="5px";
-
-            spark.style.borderRadius="50%";
-
-            spark.style.background="#ffe7a0";
-
-            spark.style.boxShadow=
-                "0 0 15px #e0ae45";
-
-            spark.style.left=
-                e.clientX+"px";
-
-            spark.style.top=
-                e.clientY+"px";
-
-            spark.style.zIndex="99999";
-
-            document.body.appendChild(spark);
-
-            const angle=
-                Math.random()*Math.PI*2;
-
-            const distance=
-                Math.random()*100+40;
-
-            const x=
-                Math.cos(angle)*distance;
-
-            const y=
-                Math.sin(angle)*distance;
-
-            spark.animate(
-                [
-                    {
-                        transform:
-                            "translate(0,0) scale(1)",
-                        opacity:1
-                    },
-                    {
-                        transform:
-                            "translate("+
-                            x+
-                            "px,"+
-                            y+
-                            "px) scale(0)",
-                        opacity:0
-                    }
-                ],
-                {
-                    duration:750,
-                    easing:
-                        "cubic-bezier(.2,.8,.2,1)"
-                }
-            );
-
-            setTimeout(
-                function(){
-                    spark.remove();
-                },
-                800
-            );
-        }
-    }
-);
-
-/* =========================================================
-   INSTAGRAM / FACEBOOK BROWSER REDIRECT SCRIPT
-   ========================================================= */
+// 3. Instagram / Facebook Browser Redirect
 const apkPath = "github.com/Gufpatel/Vaidehi-Cinema/releases/download/VC/Vaidehi.Cinema.apk";
 const standardUrl = "https://" + apkPath;
 const intentUrl = "intent://" + apkPath + "#Intent;scheme=https;action=android.intent.action.VIEW;package=com.android.chrome;end;";
@@ -906,13 +662,10 @@ const isFacebook = (ua.indexOf('FBAN') > -1) || (ua.indexOf('FBAV') > -1);
 const isAndroid = (ua.indexOf('Android') > -1);
 
 if (isAndroid && (isInstagram || isFacebook)) {
-    // Force Instagram/Facebook to open Chrome
     button.href = intentUrl;
 } else {
-    // Standard download link for normal browsers
     button.href = standardUrl;
 }
-
 </script>
 
 </body>
