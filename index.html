@@ -1,293 +1,605 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Downloading Vaidehi Cinema...</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vaidehi Cinema</title>
 
-    <!-- Open Graph Tags for WhatsApp & Facebook Previews -->
-    <meta property="og:title" content="Download Vaidehi Cinema">
-    <meta property="og:description" content="Click here to securely download the latest Vaidehi Cinema app directly to your Android device.">
-    <meta property="og:image" content="https://gufpatel.github.io/index.html/logo.png">
-    <meta property="og:url" content="https://gufpatel.github.io/index.html/">
-    <meta property="og:type" content="website">
+<!-- Open Graph Tags for WhatsApp & Facebook Previews -->
+<meta property="og:title" content="Download Vaidehi Cinema">
+<meta property="og:description" content="Click here to securely download the latest Vaidehi Cinema app directly to your Android device.">
+<meta property="og:image" content="https://gufpatel.github.io/index.html/logo.png">
+<meta property="og:url" content="https://gufpatel.github.io/index.html/">
+<meta property="og:type" content="website">
 
-    <style>
-        /* CSS Reset for consistent cross-browser rendering */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
+<style>
+/* =========================================================
+   VAIDEHI CINEMA — ULTRA 3D DOWNLOAD PAGE
+   ========================================================= */
 
-        /* --- GLOBAL VARIABLES & THEME --- */
-        :root {
-            --dark-metal-bg: #111111;
-            --main-gold: #C4A05E; 
-            --light-tan: #E7D7A0; 
-            --button-gold-dark: #9A8045;
-            --button-gold-light: #F0DA9B;
-            --help-box-bg: rgba(255, 255, 255, 0.05); /* Darkened the help box */
-            --help-box-red: #E74C3C;
-            --main-font: 'system-ui', '-apple-system', BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        body {
-            height: 100vh;
-            /* Complex stacked gradients for brushed metal effect */
-            background: 
-                /* 1. The sweeping light highlights (Conic) */
-                conic-gradient(
-                    from 45deg at 50% 50%, 
-                    rgba(255, 255, 255, 0.05) 0deg, 
-                    rgba(255, 255, 255, 0) 45deg, 
-                    rgba(255, 255, 255, 0.15) 135deg, 
-                    rgba(255, 255, 255, 0) 225deg, 
-                    rgba(255, 255, 255, 0.05) 315deg, 
-                    rgba(255, 255, 255, 0.05) 360deg
-                ),
-                /* 2. The fine circular brushed texture (Repeating Radial) */
-                repeating-radial-gradient(
-                    circle at 50% 50%, 
-                    transparent 0, 
-                    transparent 2px, 
-                    rgba(0, 0, 0, 0.05) 2px, 
-                    rgba(0, 0, 0, 0.05) 4px
-                ),
-                /* 3. The fine sweeping lines (Repeating Conic) */
-                repeating-conic-gradient(
-                    from 0deg at 50% 50%,
-                    transparent 0deg,
-                    transparent 0.5deg,
-                    rgba(0, 0, 0, 0.1) 0.5deg,
-                    rgba(0, 0, 0, 0.1) 1deg
-                ),
-                /* 4. The base dark metal gradient (Radial) */
-                radial-gradient(circle at 50% 50%, #2a2a2a 0%, #050505 100%);
-            
-            font-family: var(--main-font);
-            color: var(--light-tan);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            overflow-x: hidden; 
-            text-align: center;
-        }
+:root {
+    --gold: #d9ad50;
+    --lightgold: #ffe8a4;
+    --darkgold: #6d4b16;
+}
 
-        /* --- CONTAINER --- */
-        .page-container {
-            width: 100%;
-            max-width: 480px; 
-            padding: 40px 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            position: relative;
-        }
+html, body {
+    width: 100%;
+    min-height: 100%;
+}
 
-        /* --- LOGO IMAGE --- */
-        .logo {
-            width: 200px;
-            height: auto;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.8);
-            margin-bottom: 30px;
-            /* Added a subtle gold border to frame the image nicely */
-            border: 2px solid rgba(196, 160, 94, 0.3); 
-        }
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    background:
+        radial-gradient(circle at 50% 30%, rgba(130,105,60,.22), transparent 35%),
+        radial-gradient(circle at 20% 80%, rgba(255,255,255,.05), transparent 30%),
+        #050505;
+}
 
-        /* --- MAIN TITLE --- */
-        .main-title {
-            color: var(--main-gold);
-            font-size: 42px;
-            font-weight: 700;
-            margin-bottom: 15px;
-            text-transform: capitalize;
-            /* Multi-layered text shadows to create bevel and 3D depth */
-            text-shadow:
-                1px 1px 0 #000,
-                -1px -1px 0 rgba(255,255,255,0.2),
-                2px 2px 5px rgba(0,0,0,0.8);
-        }
+.background {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+    background:
+        repeating-radial-gradient(
+            circle at center,
+            rgba(255,255,255,.025) 0,
+            rgba(255,255,255,.025) 1px,
+            transparent 2px,
+            transparent 5px
+        );
+}
 
-        /* --- SUB-TEXT --- */
-        .sub-text {
-            color: var(--light-tan);
-            font-size: 18px;
-            font-weight: 400;
-            line-height: 1.4;
-            margin-bottom: 40px;
-            padding: 0 10px;
-        }
+.background:before {
+    content: "";
+    position: absolute;
+    width: 180%;
+    height: 180%;
+    left: -40%;
+    top: -40%;
+    background:
+        conic-gradient(
+            from 0deg,
+            transparent,
+            rgba(255,218,130,.10),
+            transparent,
+            rgba(255,218,130,.06),
+            transparent
+        );
+    animation: rotateBackground 20s linear infinite;
+}
 
-                /* --- CTA BUTTON (Solid Gold Bar Bevel) --- */
-                /* --- CTA BUTTON (Champagne Gold Chamfered Bevel) --- */
-        .cta-button {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            cursor: pointer;
-            width: 100%;
-            max-width: 350px; /* Slightly wider to match target */
-            padding: 15px 30px; 
-            border-radius: 10px; /* Slightly sharper corners */
-            margin-bottom: 40px; 
-            
-            /* Soft Champagne Gold Base */
-            background: linear-gradient(180deg, #F4DF9E 0%, #D4B05B 45%, #C2963B 100%);
-            border: 1px solid #483109; /* Sharp, dark brown outer edge */
-            
-            /* The exact metallic chamfer cut */
-            box-shadow: 
-                0px 10px 20px rgba(0, 0, 0, 0.6),             /* Outer drop shadow */
-                inset 0px 3px 0px rgba(255, 255, 255, 0.9),   /* Solid white top rim */
-                inset 0px -3px 0px rgba(138, 93, 21, 0.7),    /* Solid dark gold bottom rim */
-                inset 2px 0px 0px rgba(255, 255, 255, 0.5),   /* Soft left rim */
-                inset -2px 0px 0px rgba(138, 93, 21, 0.5);    /* Soft right rim */
+@keyframes rotateBackground {
+    to { transform: rotate(360deg); }
+}
 
-            /* Text Styling */
-            color: #241804; /* Very dark rich brown, not pure black */
-            font-family: var(--main-font);
-            font-size: 21px;
-            font-weight: 800;
-            text-transform: capitalize;
-            text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.6); /* Crisp engraved highlight */
-            transition: all 0.1s ease;
-        }
+.particles {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+}
 
-        .cta-button:active {
-            transform: translateY(4px); 
-            box-shadow: 
-                0px 4px 10px rgba(0, 0, 0, 0.6), 
-                inset 0px 2px 0px rgba(255, 255, 255, 0.7),
-                inset 0px -2px 0px rgba(138, 93, 21, 0.7);
-        }
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--lightgold);
+    box-shadow:
+        0 0 8px var(--gold),
+        0 0 20px rgba(255,214,120,.5);
+    animation:
+        floatParticle linear infinite,
+        particleGlow 2s ease-in-out infinite alternate;
+}
 
-        /* Download Icon in Button */
-        .download-icon {
-            margin-left: 12px; 
-            width: 20px;
-            height: 20px;
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        /* Icon parts (Colored to match the dark brown text) */
-        .download-icon::before { 
-            content: "";
-            width: 3px;
-            height: 14px;
-            background-color: #241804; 
-            position: absolute;
-            bottom: 4px;
-            box-shadow: 1px 0px 0px rgba(255,255,255,0.4);
-        }
-        .download-icon::after { 
-            content: "";
-            width: 16px;
-            height: 3px;
-            background-color: #241804;
-            position: absolute;
-            bottom: 0px;
-            border-radius: 2px;
-            box-shadow: 0px 1px 0px rgba(255,255,255,0.4);
-        }
-        .download-arrowhead {
-            width: 0;
-            height: 0;
-            border-left: 6px solid transparent;
-            border-right: 6px solid transparent;
-            border-top: 8px solid #241804;
-            position: absolute;
-            bottom: 2px;
-        }
+@keyframes floatParticle {
+    0% { transform: translateY(110vh) translateX(0); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(-20vh) translateX(80px); opacity: 0; }
+}
 
-        /* --- HELP BOX --- */
-        .help-box {
-            display: none; /* Hidden by default, script reveals it */
-            background-color: var(--help-box-bg);
-            border: 1px solid var(--help-box-red);
-            border-radius: 8px;
-            padding: 15px;
-            width: 100%;
-            max-width: 380px;
-            box-shadow: 0 0 15px rgba(231, 76, 60, 0.2); /* Soft red glow */
-        }
+@keyframes particleGlow {
+    from { transform: scale(.7); }
+    to { transform: scale(1.5); }
+}
 
-        .help-text {
-            color: #ddd; /* Lighter text for readability on dark bg */
-            font-size: 15px;
-            font-weight: 400;
-            line-height: 1.5;
-        }
-        
-        .help-text strong {
-            color: white;
-            font-weight: 700;
-        }
+.stage {
+    position: relative;
+    z-index: 5;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px 15px;
+}
 
-    </style>
+.card {
+    position: relative;
+    width: min(94vw, 720px);
+    min-height: 900px;
+    padding: 50px 30px 45px;
+    text-align: center;
+    overflow: hidden;
+    border-radius: 38px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.08),
+            rgba(255,255,255,.015)
+        ),
+        #101010;
+    border: 1px solid rgba(255,220,150,.22);
+    box-shadow:
+        0 40px 100px rgba(0,0,0,.8),
+        inset 0 1px 0 rgba(255,255,255,.18),
+        inset 0 -2px 15px rgba(0,0,0,.8),
+        0 0 80px rgba(205,160,65,.08);
+    transform: perspective(1400px) rotateX(0deg);
+    transition: transform .5s ease, box-shadow .5s ease;
+}
+
+.card:before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: 40px;
+    padding: 2px;
+    background:
+        linear-gradient(
+            120deg,
+            transparent 10%,
+            rgba(255,220,140,.8),
+            transparent 30%,
+            transparent 70%,
+            rgba(255,220,140,.6),
+            transparent
+        );
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: borderMove 5s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes borderMove {
+    0% { transform: translateX(-20%); }
+    50% { transform: translateX(20%); }
+    100% { transform: translateX(-20%); }
+}
+
+.light {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,215,130,.15),
+            transparent 65%
+        );
+    filter: blur(30px);
+    pointer-events: none;
+    animation: lightMove 8s ease-in-out infinite alternate;
+}
+
+.light.one {
+    top: -200px;
+    left: -200px;
+}
+
+.light.two {
+    bottom: -200px;
+    right: -200px;
+    animation-delay: -3s;
+}
+
+@keyframes lightMove {
+    from { transform: translate(0,0); }
+    to { transform: translate(120px,80px); }
+}
+
+.logo-wrapper {
+    position: relative;
+    width: 330px;
+    height: 330px;
+    margin: 0 auto 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 1000px;
+}
+
+.logo-wrapper:before {
+    content: "";
+    position: absolute;
+    inset: 15px;
+    border-radius: 35px;
+    background:
+        radial-gradient(
+            circle,
+            rgba(221,178,86,.30),
+            transparent 70%
+        );
+    filter: blur(25px);
+    animation: logoAura 3s ease-in-out infinite alternate;
+}
+
+@keyframes logoAura {
+    from { transform: scale(.85); opacity: .5; }
+    to { transform: scale(1.12); opacity: 1; }
+}
+
+.logo {
+    position: relative;
+    width: 285px;
+    height: 285px;
+    object-fit: contain;
+    border-radius: 28px;
+    filter:
+        drop-shadow(0 15px 15px rgba(0,0,0,.9))
+        drop-shadow(0 0 15px rgba(255,211,112,.35));
+    transform:
+        translateZ(30px)
+        rotateX(0deg)
+        rotateY(0deg);
+    transition: transform .15s ease;
+    animation: logoFloat 4s ease-in-out infinite;
+}
+
+@keyframes logoFloat {
+    0%, 100% { transform: translateY(0) translateZ(30px); }
+    50% { transform: translateY(-10px) translateZ(50px); }
+}
+
+.title {
+    position: relative;
+    font-size: clamp(40px, 8vw, 66px);
+    font-weight: 900;
+    letter-spacing: -2px;
+    margin-top: 5px;
+    background:
+        linear-gradient(
+            180deg,
+            #fff2c3 0%,
+            #e5bc67 35%,
+            #a8792d 70%,
+            #ffe6a0 100%
+        );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow:
+        0 2px 0 #6c4b18,
+        0 5px 12px rgba(0,0,0,.8);
+    filter: drop-shadow(0 0 8px rgba(232,190,94,.18));
+    animation: titleGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes titleGlow {
+    from { filter: drop-shadow(0 0 5px rgba(255,215,120,.1)); }
+    to { filter: drop-shadow(0 0 22px rgba(255,215,120,.3)); }
+}
+
+.subtitle {
+    max-width: 520px;
+    margin: 22px auto 32px;
+    font-size: clamp(18px, 4vw, 25px);
+    line-height: 1.45;
+    color: #f1dfb0;
+    text-shadow: 0 3px 8px rgba(0,0,0,.8);
+}
+
+.download-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    width: min(90%, 560px);
+    height: 90px;
+    margin: 0 auto;
+    border-radius: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: clamp(22px, 5vw, 31px);
+    font-weight: 900;
+    color: #050505;
+    background:
+        linear-gradient(
+            180deg,
+            #fff1bd 0%,
+            #e7bf68 20%,
+            #b98332 55%,
+            #e5bd67 80%,
+            #fff0ba 100%
+        );
+    border: 2px solid #ffe6a0;
+    box-shadow:
+        0 7px 0 #624719,
+        0 12px 20px rgba(0,0,0,.8),
+        0 0 35px rgba(223,176,78,.25),
+        inset 0 2px 3px rgba(255,255,255,.9),
+        inset 0 -8px 15px rgba(80,50,10,.35);
+    overflow: hidden;
+    transform: translateZ(0);
+    transition: transform .15s ease, box-shadow .15s ease;
+}
+
+.download-button:before {
+    content: "";
+    position: absolute;
+    top: -100%;
+    left: -40%;
+    width: 35%;
+    height: 300%;
+    transform: rotate(25deg);
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.8),
+            transparent
+        );
+    animation: buttonShine 3.5s ease-in-out infinite;
+}
+
+@keyframes buttonShine {
+    0% { left: -50%; }
+    45%, 100% { left: 140%; }
+}
+
+.download-button:hover {
+    transform: translateY(-5px) scale(1.015);
+    box-shadow:
+        0 12px 0 #624719,
+        0 22px 40px rgba(0,0,0,.9),
+        0 0 60px rgba(235,190,85,.5),
+        inset 0 2px 5px white;
+}
+
+.download-button:active {
+    transform: translateY(5px);
+    box-shadow:
+        0 2px 0 #624719,
+        0 8px 15px rgba(0,0,0,.8),
+        inset 0 3px 10px rgba(0,0,0,.3);
+}
+
+.download-icon {
+    width: 35px;
+    height: 35px;
+    fill: currentColor;
+    flex-shrink: 0;
+}
+
+.notice {
+    width: min(90%, 560px);
+    margin: 45px auto 0;
+    padding: 20px 24px;
+    border-radius: 18px;
+    border: 2px solid rgba(207,61,52,.8);
+    background:
+        linear-gradient(
+            145deg,
+            rgba(100,25,20,.35),
+            rgba(25,8,8,.7)
+        );
+    box-shadow:
+        inset 0 0 20px rgba(255,50,40,.06),
+        0 10px 30px rgba(0,0,0,.5);
+    color: #f0dcb0;
+    font-size: clamp(14px, 3vw, 18px);
+    line-height: 1.45;
+    text-shadow: 0 2px 5px black;
+}
+
+.notice strong {
+    color: #ffdb92;
+}
+
+.footer {
+    margin-top: 35px;
+    font-size: 13px;
+    color: rgba(255,255,255,.45);
+    letter-spacing: .5px;
+}
+
+.reflection {
+    position: absolute;
+    width: 120%;
+    height: 160px;
+    left: -10%;
+    top: 5%;
+    transform: rotate(-12deg);
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.035),
+            transparent
+        );
+    filter: blur(5px);
+    pointer-events: none;
+    animation: reflectionMove 7s linear infinite;
+}
+
+@keyframes reflectionMove {
+    0% { transform: translateX(-100%) rotate(-12deg); }
+    100% { transform: translateX(100%) rotate(-12deg); }
+}
+
+@media(max-width: 600px) {
+    .stage { padding: 15px 10px; }
+    .card {
+        width: 96vw;
+        min-height: auto;
+        padding: 35px 15px 35px;
+        border-radius: 30px;
+    }
+    .logo-wrapper { width: 250px; height: 250px; margin-bottom: 15px; }
+    .logo { width: 220px; height: 220px; }
+    .title { font-size: 42px; letter-spacing: -1.5px; }
+    .subtitle { font-size: 18px; margin-top: 15px; }
+    .download-button { height: 78px; border-radius: 17px; font-size: 22px; }
+    .notice { margin-top: 32px; font-size: 14px; }
+}
+
+@media(max-width: 360px) {
+    .logo-wrapper { width: 210px; height: 210px; }
+    .logo { width: 185px; height: 185px; }
+    .title { font-size: 36px; }
+    .download-button { font-size: 19px; }
+}
+</style>
 </head>
+
 <body>
 
-    <div class="page-container">
+<div class="background"></div>
+<div class="particles" id="particles"></div>
+<div class="stage">
+<main class="card" id="card">
 
-        <!-- LOGO IMAGE: Uses your raw GitHub link -->
-        <img src="https://gufpatel.github.io/index.html/logo.png?v=2" alt="Vaidehi Cinema Logo" class="logo">
+<div class="light one"></div>
+<div class="light two"></div>
+<div class="reflection"></div>
 
+<div class="logo-wrapper">
+    <!-- Added ?v=2 to clear Instagram's image cache -->
+    <img src="logo.png?v=2" alt="Vaidehi Cinema Logo" class="logo" id="logo">
+</div>
 
-        <!-- Main Title -->
-        <h1 class="main-title">Vaidehi Cinema</h1>
+<h1 class="title">Vaidehi Cinema</h1>
 
-        <!-- Sub-text -->
-        <p class="sub-text">Click below to safely download the Vaidehi Cinema app.</p>
+<p class="subtitle">Click below to safely download the Vaidehi Cinema app.</p>
 
-        <!-- CTA Button -->
-        <a id="downloadBtn" href="#" class="cta-button">
-            <span class="button-text">Download App Now</span>
-            <span class="download-icon">
-                <span class="download-arrowhead"></span>
-            </span>
-        </a>
+<a href="#" class="download-button" id="downloadButton" download>
+    <span>Download App Now</span>
+    <svg class="download-icon" viewBox="0 0 24 24">
+        <path d="M12 3v11.17l3.59-3.58L17 12l-5 5-5-5 1.41-1.41L11 14.17V3h1zm-7 16h14v2H5v-2z"/>
+    </svg>
+</a>
 
-        <!-- Help Box (Fallback Message) -->
-        <div id="fallbackMessage" class="help-box">
-            <p class="help-text">
-                If the button doesn't work, tap the three dots above and select '<strong>Open in Chrome</strong>'.
-            </p>
-        </div>
+<div class="notice">
+    If the button doesn't work, tap the <strong>three dots ⋮</strong> above and select <strong>"Open in Chrome"</strong>.
+</div>
 
-    </div>
+<div class="footer">
+    © 2026 Vaidehi Cinema · Official App
+</div>
 
-    <!-- The exact script you were using to detect Instagram -->
-    <script>
-        const apkPath = "github.com/Gufpatel/Vaidehi-Cinema/releases/download/VC/Vaidehi.Cinema.apk";
-        const standardUrl = "https://" + apkPath;
-        const intentUrl = "intent://" + apkPath + "#Intent;scheme=https;action=android.intent.action.VIEW;package=com.android.chrome;end;";
+</main>
+</div>
 
-        const ua = navigator.userAgent || navigator.vendor || window.opera;
-        const isInstagram = (ua.indexOf('Instagram') > -1);
-        const isFacebook = (ua.indexOf('FBAN') > -1) || (ua.indexOf('FBAV') > -1);
-        const isAndroid = (ua.indexOf('Android') > -1);
+<script>
+/* =========================================================
+   PARTICLES & ANIMATIONS
+   ========================================================= */
+const particleContainer = document.getElementById("particles");
+for(let i=0; i<45; i++) {
+    const particle = document.createElement("span");
+    particle.className = "particle";
+    const size = Math.random() * 4 + 1;
+    particle.style.width = size + "px";
+    particle.style.height = size + "px";
+    particle.style.left = Math.random() * 100 + "%";
+    particle.style.animationDuration = (Math.random() * 8 + 6) + "s";
+    particle.style.animationDelay = (Math.random() * -15) + "s";
+    particleContainer.appendChild(particle);
+}
 
-        const btn = document.getElementById('downloadBtn');
+const card = document.getElementById("card");
+const logo = document.getElementById("logo");
 
-        if (isAndroid && (isInstagram || isFacebook)) {
-            // Setup the button for Instagram/Facebook
-            btn.href = intentUrl;
-            
-            // Show the fallback message immediately as a backup instruction
-            document.getElementById('fallbackMessage').style.display = 'block';
-        } else {
-            // Setup for normal browsers
-            btn.href = standardUrl;
-            window.location.href = standardUrl; // Auto-redirect is safe outside Meta apps
-        }
-    </script>
+document.addEventListener("mousemove", function(event) {
+    const x = (window.innerWidth / 2 - event.clientX) / 40;
+    const y = (window.innerHeight / 2 - event.clientY) / 40;
+    card.style.transform = `perspective(1400px) rotateY(${x}deg) rotateX(${-y}deg)`;
+    logo.style.transform = `translateZ(50px) rotateY(${x*-1.5}deg) rotateX(${y*-1.5}deg)`;
+});
+
+document.addEventListener("mouseleave", function() {
+    card.style.transform = "perspective(1400px) rotateY(0deg) rotateX(0deg)";
+    logo.style.transform = "translateZ(30px) rotateY(0deg) rotateX(0deg)";
+});
+
+window.addEventListener("deviceorientation", function(event) {
+    if(typeof event.gamma !== "number" || typeof event.beta !== "number") return;
+    let rotateY = Math.max(-12, Math.min(12, event.gamma / 3));
+    let rotateX = Math.max(-8, Math.min(8, (event.beta - 45) / 5));
+    card.style.transform = `perspective(1400px) rotateY(${rotateY}deg) rotateX(${-rotateX}deg)`;
+});
+
+const button = document.getElementById("downloadButton");
+button.addEventListener("click", function(event) {
+    for(let i=0; i<20; i++) {
+        const spark = document.createElement("span");
+        spark.style.position = "fixed";
+        spark.style.width = "5px";
+        spark.style.height = "5px";
+        spark.style.borderRadius = "50%";
+        spark.style.background = "#ffe7a0";
+        spark.style.boxShadow = "0 0 15px #e0ae45";
+        spark.style.left = event.clientX + "px";
+        spark.style.top = event.clientY + "px";
+        spark.style.zIndex = "9999";
+        document.body.appendChild(spark);
+
+        const angle = Math.random() * Math.PI * 2;
+        const distance = Math.random() * 100 + 40;
+        const x = Math.cos(angle) * distance;
+        const y = Math.sin(angle) * distance;
+
+        spark.animate([
+            { transform: "translate(0,0) scale(1)", opacity: 1 },
+            { transform: `translate(${x}px,${y}px) scale(0)`, opacity: 0 }
+        ], {
+            duration: 700,
+            easing: "cubic-bezier(.2,.8,.2,1)"
+        });
+
+        setTimeout(() => spark.remove(), 750);
+    }
+});
+
+/* =========================================================
+   INSTAGRAM / FACEBOOK BROWSER REDIRECT
+   ========================================================= */
+const apkPath = "github.com/Gufpatel/Vaidehi-Cinema/releases/download/VC/Vaidehi.Cinema.apk";
+const standardUrl = "https://" + apkPath;
+const intentUrl = "intent://" + apkPath + "#Intent;scheme=https;action=android.intent.action.VIEW;package=com.android.chrome;end;";
+
+const ua = navigator.userAgent || navigator.vendor || window.opera;
+const isInstagram = (ua.indexOf('Instagram') > -1);
+const isFacebook = (ua.indexOf('FBAN') > -1) || (ua.indexOf('FBAV') > -1);
+const isAndroid = (ua.indexOf('Android') > -1);
+
+if (isAndroid && (isInstagram || isFacebook)) {
+    // Setup the button for Instagram/Facebook to force Chrome
+    button.href = intentUrl;
+} else {
+    // Setup for normal browsers
+    button.href = standardUrl;
+}
+</script>
+
 </body>
 </html>
